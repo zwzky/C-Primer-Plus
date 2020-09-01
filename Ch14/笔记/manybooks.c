@@ -11,7 +11,7 @@ char * s_gets(char * st, int n)
 
 struct book {
     char title[MAXTITL];
-
+    char author[
 
 
 }
