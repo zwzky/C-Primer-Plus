@@ -38,9 +38,6 @@ int main(void)
     printf("%s%s\n", msgs[1], fellow.job);
     printf("%s\n", msgs[2]);
     printf("%s%s%s", msgs[3], fellow.favfood, msgs[4]);
-    if(fellow.income > 150000.0)
-        puts("!!");
-    else if(fellow.income > 75000.0)
         puts("!");
     else
         puts(".");
