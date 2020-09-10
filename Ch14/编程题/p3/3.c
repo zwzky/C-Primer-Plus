@@ -22,7 +22,7 @@ int main(void)
     struct book library[MAXBKS];
     int count = 0;
     int index, k;
-    char * temporary;
+    struct book temporary;
     float temp;
 
     printf("Please enter the book title.\n");
@@ -40,36 +40,34 @@ int main(void)
     }
     if(count > 0)
     {
-        printf("按照输入图书的顺序输出图书的信息：\n");
         printf("Here is the list of your books sorted by input order:\n");
         for(index = 0; index < count; index++)
             printf("%s by %s: %.2f\n", library[index].title, library[index].author, library[index].value);
-        printf("按照标题字母的声明输出图书的信息：\n");
-        printf("Here is the list of your books in alphabetical order:\n");
+        printf("\nHere is the list of your books in alphabetical order:\n");
         for(index = 0; index < count; index++)
         {
             for(k = index + 1; k < count; k++)
             {
                 if(strcmp(library[index].title, library[k].title)> 0)
                 {
-                    temporary = library[index].title;
-                    library.[index].title = library[k].title;
-                    library[k].title = temporary;
+                    temporary = library[index];
+                    library[index] = library[k];
+                    library[k] = temporary;
                 }
             }
         }
         for(index = 0; index < count; index++)
             printf("%s by %s: %.2f\n", library[index].title, library[index].author, library[index].value);
-        printf("Here ios the list of you books by price:\n");
+        printf("\nHere is the list of you books by price:\n");
         for(index = 0; index < count; index++)
         {
             for(k = index + 1; k < count; k++)
             {
-                if(library[index].price > library[k].price)
+                if(library[index].value > library[k].value)
                 {
-                      temp = library[index].price;
-                      library[index].price = library[k].price;
-                      library[k].price = temp;
+                      temp = library[index].value;
+                      library[index].value = library[k].value;
+                      library[k].value = temp;
                 }
             }
         }
