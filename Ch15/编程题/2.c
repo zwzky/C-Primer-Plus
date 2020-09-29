@@ -9,24 +9,43 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#define SIZE 32
-
-int str_bstr(char * st);
-int btois(char * st);
-char * itobs(int n, char *ps);
-void print_bstr(unsigned int n);
+//二进制转化为整数
+int convert(char * st, int n);
+//整数转化为二进制字符串
+char * itobs(int n, char * ps, int m);
 
 int main(int argc, char * argv[])
 {
-    char str[SIZE];
+    char ch[CHAR_BIT * sizeof(int) + 1];
+    int a, b;
+    int i, j;
+
     if(argc != 3)
     {
-        puts("Error!\n");
-        exit(1);
+        fprintf(stderr, "用法：%s 二进制字符串 二进制字符串\n", argv[0]);
+        exit(EXIT_FAILURE);
     }
-   // str_bstr(argv[1]);
-   // str_bstr(argv[2]);
 
+    for(i = 0; argv[1][i] != '\0'; i++)
+    {
+        if(argv[1][i] != '0' && argv[1][i] != '1')
+        {
+            fputs("错误，二进制只能为0或1，请重新输入\n", stderr);
+            exit(EXIT_FAILURE);
+        }
+    }
+    for(j = 0; argv[2][j] != '\0'; i++)
+    {
+        if(argv[2][j] != '0' && argv[2][j] != '1')
+        {
+            fputs("错误，二进制只能为0或1，请重新输入\n", stderr);
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    a = convert(argv[1], i - 1);
+    b = convert(argv[2], j - 1);
+    printf()
     int num1, num2;
     num1 = btois(argv[1]);
     num2 = btois(argv[2]);
